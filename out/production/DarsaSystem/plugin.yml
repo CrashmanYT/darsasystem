@@ -1,0 +1,10 @@
+main: org.fortyoteam.darsasystem.Main
+name: DarsaSystem
+description: Darsa Build Battle System
+version: 1.19
+
+commands:
+  buff:
+    description: Buff Command
+  darsaitem:
+    description: Custom Items Command
