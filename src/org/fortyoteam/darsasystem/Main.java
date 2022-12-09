@@ -10,7 +10,7 @@ public class Main extends JavaPlugin {
         getCommand("buff").setExecutor(new Buff());
         getCommand("buff").setTabCompleter(new BuffCompleter());
 
-        getCommand("darsaitem").setExecutor(new DarsaItem());
+        getCommand("darsaitem").setExecutor(new DarsaItemCommand());
         getCommand("darsaitem").setTabCompleter(new CustomItemsCompleter());
 
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);

@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.fortyoteam.darsasystem.config.DarsaConfig;
+import org.fortyoteam.darsasystem.enums.DarsaItem;
 
 public class PlayerInteract implements Listener {
 
@@ -17,7 +18,7 @@ public class PlayerInteract implements Listener {
     public void onPlayerUse(PlayerInteractEvent event) {
         Player p = event.getPlayer();
 
-        if (p.getItemInHand().getItemMeta().getLore().get(1).equals("frost_sword")) {
+        if (p.getItemInHand().equals(DarsaConfig.DARSA_ITEM.get(DarsaItem.FROST_SWORD))) {
             for (Player player : p.getServer().getOnlinePlayers()) {
                 player.sendMessage(DarsaConfig.SYSTEM_NAME + ChatColor.GOLD + ChatColor.BOLD + p.getName() +  ChatColor.GREEN +" Mengaktifkan Kemampuan " + ChatColor.BLUE + ChatColor.BOLD + "Ice Capsule");
                 return;

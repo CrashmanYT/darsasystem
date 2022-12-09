@@ -15,7 +15,8 @@ public class CustomItem {
     ItemMeta meta;
     CommandSender sender;
     String[] args;
-    public CustomItem(ItemStack item, Map<DItemMeta, Object> meta, CommandSender sender, String[] args) {
+    int customId;
+    public CustomItem(ItemStack item, Map<DItemMeta, Object> meta, CommandSender sender, String[] args, int customId) {
 
         this.meta = item.getItemMeta();
 
@@ -31,6 +32,7 @@ public class CustomItem {
         this.item = item;
         this.sender = sender;
         this.args = args;
+        this.customId = customId;
     }
 
     public void giveItem() {
