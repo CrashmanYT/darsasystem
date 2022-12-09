@@ -17,11 +17,18 @@ public class PlayerInteract implements Listener {
     public void onPlayerUse(PlayerInteractEvent event) {
         Player p = event.getPlayer();
 
-        if (p.getItemInHand().getItemMeta().getLore().get(2).equals("frost_sword")) {
+        if (p.getItemInHand().getItemMeta().getLore().get(1).equals("frost_sword")) {
             for (Player player : p.getServer().getOnlinePlayers()) {
                 player.sendMessage(DarsaConfig.SYSTEM_NAME + ChatColor.GOLD + ChatColor.BOLD + p.getName() +  ChatColor.GREEN +" Mengaktifkan Kemampuan " + ChatColor.BLUE + ChatColor.BOLD + "Ice Capsule");
+                return;
             }
         }
+        if (p.getItemInHand().getItemMeta().getLore().get(1).equals("phoenix_axe")) {
+            for (Player player : p.getServer().getOnlinePlayers()) {
+                player.sendMessage(DarsaConfig.SYSTEM_NAME + ChatColor.GOLD + ChatColor.BOLD + p.getName() +  ChatColor.GREEN +" Mengaktifkan Kemampuan " + ChatColor.RED + ChatColor.BOLD + "Phoenix Rage");
+            }
+        }
+
     }
 
 }

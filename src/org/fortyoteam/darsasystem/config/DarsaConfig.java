@@ -1,7 +1,6 @@
 package org.fortyoteam.darsasystem.config;
 
 import net.md_5.bungee.api.ChatColor;
-import org.fortyoteam.darsasystem.enums.DarsaItem;
 import org.fortyoteam.darsasystem.enums.ErrorMessage;
 
 import java.util.HashMap;

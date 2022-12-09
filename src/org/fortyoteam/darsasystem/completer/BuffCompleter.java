@@ -1,4 +1,4 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.completer;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

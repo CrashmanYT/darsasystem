@@ -1,4 +1,4 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.completer;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -13,6 +13,7 @@ public class CustomItemsCompleter implements TabCompleter {
         if (strings.length == 1) {
             List<String> itemNames = new ArrayList<>();
             itemNames.add("frostsword");
+            itemNames.add("phoenixaxe");
             return itemNames;
         }
         return null;
