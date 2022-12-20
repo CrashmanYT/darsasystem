@@ -6,5 +6,5 @@ version: 1.19
 commands:
   buff:
     description: Buff Command
-  darsaitem:
-    description: Custom Items Command
+  shop:
+    description: Shop Command
