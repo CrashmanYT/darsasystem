@@ -19,16 +19,21 @@ public class Shop implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if (sender instanceof Player) {
-            shopGui = Bukkit.createInventory(null, 54 ,ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + ChatColor.BOLD + "Darsa" + ChatColor.GOLD + ChatColor.ITALIC + ChatColor.BOLD +" Shop");
+            shopGui = Bukkit.createInventory(null, 54 ,
+                    ChatColor.BLUE + "┌" + ChatColor.DARK_GREEN  +
+                             ChatColor.ITALIC + ChatColor.BOLD + "Darsa" +
+                             ChatColor.GOLD + ChatColor.ITALIC + ChatColor.BOLD +" Shop" +
+                             ChatColor.BLUE + "┘"
+                    );
 
             try {
-                shopGui.setItem(10, AddItem(Material.END_STONE, 64, 1));
+                shopGui.setItem(10, AddItem(Material.BLACKSTONE, 64, 1));
                 shopGui.setItem(11, AddItem(Material.NETHERRACK, 64, 1));
-                shopGui.setItem(12, AddItem(Material.SPONGE, 3, 7));
-                shopGui.setItem(13, AddItem(Material.CHISELED_QUARTZ_BLOCK, 32, 6));
-                shopGui.setItem(14, AddItem(Material.QUARTZ_BLOCK, 32, 5));
-                shopGui.setItem(15, AddItem(Material.QUARTZ_PILLAR, 16, 4));
-                shopGui.setItem(16, AddItem(Material.GLOWSTONE, 8, 1));
+                shopGui.setItem(12, AddItem(Material.CHISELED_QUARTZ_BLOCK, 32, 6));
+                shopGui.setItem(13, AddItem(Material.QUARTZ_BLOCK, 32, 5));
+                shopGui.setItem(14, AddItem(Material.QUARTZ_PILLAR, 16, 4));
+                shopGui.setItem(15, AddItem(Material.GLOWSTONE, 8, 1));
+                shopGui.setItem(16, AddItem(Material.SPONGE, 3, 7));
 
             } catch (Exception ignored) {
 
