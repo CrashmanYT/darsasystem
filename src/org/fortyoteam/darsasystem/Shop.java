@@ -28,7 +28,7 @@ public class Shop implements CommandExecutor {
                 shopGui.setItem(13, AddItem(Material.CHISELED_QUARTZ_BLOCK, 32, 6));
                 shopGui.setItem(14, AddItem(Material.QUARTZ_BLOCK, 32, 5));
                 shopGui.setItem(15, AddItem(Material.QUARTZ_PILLAR, 16, 4));
-
+                shopGui.setItem(16, AddItem(Material.GLOWSTONE, 8, 1));
 
             } catch (Exception ignored) {
 

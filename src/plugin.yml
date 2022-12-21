@@ -8,3 +8,7 @@ commands:
     description: Buff Command
   shop:
     description: Shop Command
+  blacksmith:
+    description: Blacksmith command
+    aliases:
+      - bls
