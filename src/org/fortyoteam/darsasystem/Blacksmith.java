@@ -2,38 +2,28 @@ package org.fortyoteam.darsasystem;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.event.inventory.PrepareAnvilEvent;
-import org.bukkit.event.inventory.PrepareItemCraftEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.RecipeChoice;
-import org.bukkit.inventory.SmithingRecipe;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.fortyoteam.darsasystem.events.CraftItem;
-import org.fortyoteam.darsasystem.events.PlayerPickupItem;
-import org.fortyoteam.darsasystem.events.SmithingTable;
 
 import java.util.*;
 
 public class Blacksmith implements CommandExecutor {
     public static Inventory blacksmithGui;
-    public static HashMap<Integer, String> tier;
+    public static NavigableMap<String, String[]> tiers;
     static {
-        tier = new HashMap<>();
-        tier.put(0, "C");
-        tier.put(1, "B");
-        tier.put(2, "A");
-        tier.put(3, "S");
-        tier.put(4, "S+");
+        tiers = new TreeMap<String, String[]>();
+        tiers.put(ChatColor.RED + "" + ChatColor.BOLD + "Tier S+", new String[] {});
+        tiers.put(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "Tier S", new String[] {"NETHERITE"});
+        tiers.put(ChatColor.YELLOW + "" + ChatColor.BOLD + "Tier A", new String[] {"DIAMOND", "CROSSBOW"});
+        tiers.put(ChatColor.BLUE + "" + ChatColor.BOLD + "Tier B", new String[] {"GOLD", "BOW"});
+        tiers.put("Tier C", new String[] {"WOOD", "STONE", "IRON"});
     }
 
     @Override
@@ -64,23 +54,26 @@ public class Blacksmith implements CommandExecutor {
          String itemId =  item.getType().name();
          ItemMeta meta = item.getItemMeta();
          List<String> lore = new ArrayList<>();
+         e.getPlayer().sendMessage(itemId);
 
-        String[] tierCItems = {"IRON", "WOODEN", "STONE"};
-        String[] tierBItems = {"GOLDEN"};
-        String[] tierAItems = {"DIAMOND"};
-        String[] tierSItems = {"NETHERITE"};
-        String[] tierSPlusItems = {};
+         for (String tier : tiers.keySet()) {
+             for (String tierItem : tiers.get(tier)) {
+                 if (itemId.contains(tierItem)) {
+                     e.getPlayer().sendMessage("" + item.getEnchantments().size());
+                     if (item.getEnchantments().size() > 0) {
+//                         if (lore.isEmpty()) lore.add(tiers.higherKey(tier));
+                         lore.set(0, tiers.higherKey(tier));
+                     } else {
+                         if (lore.isEmpty()) lore.add(tier);
+                         lore.set(0, tier);
+                     }
 
-        for (String tieritem : tierCItems) {
-            if (itemId.contains(tieritem)) {
-                if (item.getEnchantments().size() > 0) {
-                    lore.add(ChatColor.BOLD + tier.get(1));
-                } else {
-                    lore.add(ChatColor.BOLD + tier.get(0));
-                    
-                }
-            }
-        }
+                     meta.setLore(lore);
+                     item.setItemMeta(meta);
+                     return;
+                 }
+             }
+         }
 
 //         for (String tierItem : tierCItems) {
 //             if (itemId.contains(tierItem) && item.getEnchantments().size() < 1) {
@@ -108,8 +101,7 @@ public class Blacksmith implements CommandExecutor {
 //                lore.add(ChatColor.RED + "" +ChatColor.BOLD + "Tier S+");
 //            }
 //        }
-         meta.setLore(lore);
-         item.setItemMeta(meta);
+
     }
 
 }

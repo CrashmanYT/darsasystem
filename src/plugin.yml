@@ -2,6 +2,7 @@ main: org.fortyoteam.darsasystem.Main
 name: DarsaSystem
 description: Darsa Build Battle System
 version: 1.19
+api-version: 1.19
 
 commands:
   buff:
