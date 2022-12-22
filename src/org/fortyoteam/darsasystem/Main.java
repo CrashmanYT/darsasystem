@@ -18,11 +18,16 @@ public class Main extends JavaPlugin {
 
 
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
-        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
-        getServer().getPluginManager().registerEvents(new SmithingTable(), this);
         getServer().getPluginManager().registerEvents(new PlayerPickupItem(), this);
-        getServer().getPluginManager().registerEvents(new InventoryOpen(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDropItem(), this);
+        getServer().getPluginManager().registerEvents(new InventoryClick(), this);
+        getServer().getPluginManager().registerEvents(new InventoryMove(), this);
+        getServer().getPluginManager().registerEvents(new InventoryInteract(), this);
+        getServer().getPluginManager().registerEvents(new SmithingTable(), this);
         getServer().getPluginManager().registerEvents(new CraftItem(), this);
+        getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
+        getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
+        getServer().getPluginManager().registerEvents(new PrepareSmithing(), this);
     }
 
 

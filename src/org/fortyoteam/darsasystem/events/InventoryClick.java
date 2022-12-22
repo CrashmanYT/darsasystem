@@ -6,8 +6,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.fortyoteam.darsasystem.Blacksmith;
 import org.fortyoteam.darsasystem.Shop;
 import org.fortyoteam.darsasystem.config.DarsaConfig;
 
@@ -17,7 +19,9 @@ public class InventoryClick implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
+
         Player player = (Player) e.getWhoClicked();
+
         // Shop Events
         if (e.getInventory().equals(Shop.shopGui)) {
             e.setCancelled(true);
