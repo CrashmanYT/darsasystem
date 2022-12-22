@@ -55,21 +55,31 @@ public class Blacksmith implements CommandExecutor {
     /**
      *
      * Event that used this function :
-     * - InventoryClick
      * - PrepareItemCraft
      * - PrepareAnvil
      * - PrepareSmithing
      * - PlayerPickupItem
+     * - InventoryClick
      *
      */
-    public static Object[] setItemTier(Player player, ItemStack e, boolean cancel) {
+    public static Object[] setItemTier(Player player, ItemStack e, boolean cancel, boolean isGrindstone) {
          ItemStack item = e;
          String itemId =  item.getType().name();
          ItemMeta meta = item.getItemMeta();
          List<String> lore = new ArrayList<>();
          StringBuilder test = new StringBuilder();
+
 //
          for (String tier : tiers.keySet()) {
+             // if player using grindstone, downgrade tier
+             if (isGrindstone) {
+                 lore.add(tiers.lowerKey(tier));
+                 meta.setLore(lore);
+                 item.setItemMeta(meta);
+
+                 return new Object[] {cancel, item, item.getItemMeta()};
+
+             }
              for (String tierItem : tiers.get(tier)) {
                  if (!itemId.contains(tierItem)) continue;
                  if (item.getEnchantments().size() > 0) {
@@ -82,13 +92,13 @@ public class Blacksmith implements CommandExecutor {
                  item.setItemMeta(meta);
 
                  // if setCancelled true, give item to player
-                 if (cancel) return new Object[] {cancel, player.getInventory().addItem(item)};
+                 if (cancel) return new Object[] {cancel, player.getInventory().addItem(item), item.getItemMeta()};
 
                 // return [Cancel condition, item]
-                 return new Object[] {cancel, item};
+                 return new Object[] {cancel, item, item.getItemMeta()};
              }
          }
-         return new Object[] {cancel, item};
+         return new Object[] {cancel, item, item.getItemMeta()};
 
     }
 
