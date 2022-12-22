@@ -67,32 +67,25 @@ public class Blacksmith implements CommandExecutor {
          String itemId =  item.getType().name();
          ItemMeta meta = item.getItemMeta();
          List<String> lore = new ArrayList<>();
+         StringBuilder test = new StringBuilder();
 //
          for (String tier : tiers.keySet()) {
              for (String tierItem : tiers.get(tier)) {
-                 if (itemId.contains(tierItem)) {
-                     if (item.getEnchantments().size() > 0) {
-                         if (!tier.contains("S+")) {
-                             if (lore.isEmpty()) lore.add(tiers.higherKey(tier));
-                             lore.set(0, tiers.higherKey(tier));
-                         } else {
-                             if (lore.isEmpty()) lore.add(tier);
-                             lore.set(0, tier);
-                         }
-                     } else {
-                         if (lore.isEmpty()) lore.add(tier);
-                         lore.set(0, tier);
-                     }
-
-                     meta.setLore(lore);
-                     item.setItemMeta(meta);
-
-                     // if setCancelled true, give item to player
-                     if (cancel) return new Object[] {cancel, player.getInventory().addItem(item)};
-
-                    // return [Cancel condition, item]
-                     return new Object[] {cancel, item};
+                 if (!itemId.contains(tierItem)) continue;
+                 if (item.getEnchantments().size() > 0) {
+                     lore.add((!tier.contains("S+") ? tiers.higherKey(tier) : tier));
+                 } else {
+                     lore.add(tier);
                  }
+
+                 meta.setLore(lore);
+                 item.setItemMeta(meta);
+
+                 // if setCancelled true, give item to player
+                 if (cancel) return new Object[] {cancel, player.getInventory().addItem(item)};
+
+                // return [Cancel condition, item]
+                 return new Object[] {cancel, item};
              }
          }
          return new Object[] {cancel, item};
