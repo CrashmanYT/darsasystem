@@ -5,8 +5,6 @@ import org.fortyoteam.darsasystem.completer.*;
 import org.fortyoteam.darsasystem.events.*;
 import org.fortyoteam.darsasystem.files.ItemConfig;
 
-import java.util.ArrayList;
-
 public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
@@ -26,9 +24,13 @@ public class Main extends JavaPlugin {
         getCommand("buff").setExecutor(new Buff());
         getCommand("buff").setTabCompleter(new BuffCompleter());
 
+        getCommand("blacksmith").setExecutor(new Blacksmith());
+
+        getCommand("darsaitem").setExecutor(new DarsaItem());
+        getCommand("darsaitem").setTabCompleter(new DarsaItemsCompleter());
+
         getCommand("shop").setExecutor(new Shop());
 
-        getCommand("blacksmith").setExecutor(new Blacksmith());
 
 
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);

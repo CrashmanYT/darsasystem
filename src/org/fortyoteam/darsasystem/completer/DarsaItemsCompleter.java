@@ -3,17 +3,19 @@ package org.fortyoteam.darsasystem.completer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
+import org.fortyoteam.darsasystem.files.ItemConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomItemsCompleter implements TabCompleter {
+public class DarsaItemsCompleter implements TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender commandSender, Command command, String s, String[] strings) {
         if (strings.length == 1) {
             List<String> itemNames = new ArrayList<>();
-            itemNames.add("frostsword");
-            itemNames.add("phoenixaxe");
+            for (String item : ItemConfig.get().getKeys(false)) {
+                itemNames.add(item);
+            }
             return itemNames;
         }
         return null;

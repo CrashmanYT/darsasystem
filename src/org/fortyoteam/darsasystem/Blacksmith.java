@@ -13,6 +13,7 @@ import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.fortyoteam.darsasystem.files.ItemConfig;
 
 import java.util.*;
 
@@ -69,8 +70,16 @@ public class Blacksmith implements CommandExecutor {
          List<String> lore = new ArrayList<>();
          StringBuilder test = new StringBuilder();
 
-//
-         for (String tier : tiers.keySet()) {
+         // if item is darsa item
+        for (String key : ItemConfig.get().getKeys(false)) {
+            if (!item.getItemMeta().getDisplayName().equals(ItemConfig.get().getString(key + ".DisplayName"))) {
+                return new Object[]{};
+            }
+        }
+
+
+
+        for (String tier : tiers.keySet()) {
              // if player using grindstone, downgrade tier
              if (isGrindstone) {
                  lore.add(tiers.lowerKey(tier));

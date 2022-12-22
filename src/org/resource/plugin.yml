@@ -15,3 +15,7 @@ commands:
       - bls
   dsr:
     description: Reload Config
+  darsaitem:
+    description: Darsa Item Command
+    aliases:
+      - dsi
