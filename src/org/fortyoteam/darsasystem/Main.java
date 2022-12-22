@@ -3,12 +3,26 @@ package org.fortyoteam.darsasystem;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.fortyoteam.darsasystem.completer.*;
 import org.fortyoteam.darsasystem.events.*;
+import org.fortyoteam.darsasystem.files.ItemConfig;
 
 import java.util.ArrayList;
 
 public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
+
+        // Load Config
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        ItemConfig.setup();
+        ItemConfig.get().options().copyDefaults(true);
+        ItemConfig.save();
+
+        // Config Commands
+        getCommand("dsr").setExecutor(new Reload());
+
+
         getCommand("buff").setExecutor(new Buff());
         getCommand("buff").setTabCompleter(new BuffCompleter());
 
@@ -29,6 +43,8 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
         getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
         getServer().getPluginManager().registerEvents(new PrepareSmithing(), this);
+
+
     }
 
 

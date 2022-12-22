@@ -13,3 +13,5 @@ commands:
     description: Blacksmith command
     aliases:
       - bls
+  dsr:
+    description: Reload Config
