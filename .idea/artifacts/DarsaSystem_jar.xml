@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="DarsaSystem:jar">
-    <output-path>$PROJECT_DIR$/../../../Assets/Asset Game/Server Universe/Server MC/Plugin Development/plugins</output-path>
+    <output-path>$PROJECT_DIR$/../../../Seputar Perkodingan/Java/Minecraft/Plugin Development/plugins</output-path>
     <root id="archive" name="DarsaSystem.jar">
       <element id="module-output" name="DarsaSystem" />
-      <element id="file-copy" path="$PROJECT_DIR$/src/org/resource/plugin.yml" />
       <element id="extracted-dir" path="$PROJECT_DIR$/SpigotAPI/spigot-api-1.19-R0.1-SNAPSHOT-shaded.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/org/resource/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/org/resource/config.yml" />
     </root>
   </artifact>

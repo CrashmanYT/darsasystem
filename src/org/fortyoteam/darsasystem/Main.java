@@ -29,6 +29,8 @@ public class Main extends JavaPlugin {
         getCommand("darsaitem").setExecutor(new DarsaItem());
         getCommand("darsaitem").setTabCompleter(new DarsaItemsCompleter());
 
+        getCommand("darsahelp").setExecutor(new Help(this));
+
         getCommand("shop").setExecutor(new Shop());
 
 

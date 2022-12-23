@@ -6,16 +6,26 @@ api-version: 1.19
 
 commands:
   buff:
-    description: Buff Command
+    description: Give players buff
+    usage: /buff [name]
   shop:
-    description: Shop Command
+    description: Open Shop GUI
+    usage: /shop
   blacksmith:
-    description: Blacksmith command
+    description: Open Blacksmith
     aliases:
       - bls
+    usage: /blacksmith
   dsr:
     description: Reload Config
+    usage: /dsr
   darsaitem:
-    description: Darsa Item Command
+    description: Give player Custom Darsa Item
     aliases:
       - dsi
+    usage: /darsaitem [itemname]
+  darsahelp:
+    description: Show list of all commands
+    usage: /darsahelp
+    aliases:
+      - dsh
