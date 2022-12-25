@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.fortyoteam.darsasystem.config.DarsaConfig;
 import org.fortyoteam.darsasystem.config.ItemConfig;
+import org.fortyoteam.darsasystem.ui.DScoreboard;
 
 public class Reload implements CommandExecutor {
 

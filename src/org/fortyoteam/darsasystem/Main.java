@@ -31,17 +31,17 @@ public class Main extends JavaPlugin {
         getCommand("dsr").setExecutor(new Reload());
 
 
-        getCommand("buff").setExecutor(new Buff());
-        getCommand("buff").setTabCompleter(new BuffCompleter());
+        getCommand("darsabuff").setExecutor(new Buff());
+        getCommand("darsabuff").setTabCompleter(new BuffCompleter());
 
-        getCommand("blacksmith").setExecutor(new Blacksmith());
+        getCommand("darsablacksmith").setExecutor(new Blacksmith());
 
         getCommand("darsaitem").setExecutor(new DarsaItem());
         getCommand("darsaitem").setTabCompleter(new DarsaItemsCompleter());
 
         getCommand("darsahelp").setExecutor(new Help(this));
 
-        getCommand("shop").setExecutor(new Shop());
+        getCommand("darsashop").setExecutor(new Shop());
 
 
 

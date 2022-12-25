@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 
 public class DScoreboard {
     private static final ScoreboardManager manager = Bukkit.getScoreboardManager();
-    private static final Scoreboard scoreboard = manager.getNewScoreboard();
+    private static Scoreboard scoreboard = manager.getNewScoreboard();
     private static Collection<? extends Player> onlinePlayers;
 
     public DScoreboard(Collection<? extends Player> players) {
