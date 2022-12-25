@@ -1,5 +1,6 @@
 package org.fortyoteam.darsasystem;
 
+import net.minecraft.world.inventory.InventoryMerchant;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -7,57 +8,45 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
+import org.bukkit.entity.WanderingTrader;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.*;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.fortyoteam.darsasystem.files.ItemConfig;
 
+
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Shop implements CommandExecutor {
+
     public static Inventory shopGui;
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
-        if (sender instanceof Player) {
-            shopGui = Bukkit.createInventory(null, 54 ,
-                    ChatColor.BLUE + "┌" + ChatColor.DARK_GREEN  +
-                             ChatColor.ITALIC + ChatColor.BOLD + "Darsa" +
-                             ChatColor.GOLD + ChatColor.ITALIC + ChatColor.BOLD +" Shop" +
-                             ChatColor.BLUE + "┘"
-                    );
+        if (!(sender instanceof Player)) return true;
 
-            try {
-                shopGui.setItem(10, AddItem(Material.BLACKSTONE, 64, 1));
-                shopGui.setItem(11, AddItem(Material.NETHERRACK, 64, 1));
-                shopGui.setItem(12, AddItem(Material.CHISELED_QUARTZ_BLOCK, 32, 6));
-                shopGui.setItem(13, AddItem(Material.QUARTZ_BLOCK, 32, 5));
-                shopGui.setItem(14, AddItem(Material.QUARTZ_PILLAR, 16, 4));
-                shopGui.setItem(15, AddItem(Material.GLOWSTONE, 8, 1));
-                shopGui.setItem(16, AddItem(Material.SPONGE, 3, 7));
+        Merchant shop = Bukkit.createMerchant(ChatColor.translateAlternateColorCodes('&', "&b┌&2&o&lDarsa&6&o&lShop&b┘"));
 
-            } catch (Exception ignored) {
+        List<MerchantRecipe> items = new ArrayList<>();
+        items.add(AddItem(Material.END_STONE, Material.GOLD_INGOT, 32, 1));
+        items.add(AddItem(Material.BLACKSTONE, Material.GOLD_INGOT, 32, 1));
+        items.add(AddItem(Material.NETHERRACK, Material.GOLD_INGOT, 32, 1));
+        items.add(AddItem(Material.CHISELED_QUARTZ_BLOCK, Material.GOLD_INGOT, 32, 6));
+        items.add(AddItem(Material.QUARTZ_BLOCK, Material.GOLD_INGOT, 32, 5));
+        items.add(AddItem(Material.GLOWSTONE, Material.GOLD_INGOT, 8, 1));
+        items.add(AddItem(Material.SPONGE, Material.GOLD_INGOT, 3, 7));
 
-            }
+        shop.setRecipes(items);
 
-            ((Player) sender).openInventory(shopGui);
-
-        }
-        return false;
+        ((Player) sender).openMerchant(shop, true);
+        return true;
     }
 
-    private ItemStack AddItem(Material i, int count ,int price) {
-        ItemStack item = new ItemStack(i);
-        item.setAmount(count);
-
-        ItemMeta meta = item.getItemMeta();
-        ArrayList<String> lore = new ArrayList<>();
-        lore.add(ChatColor.YELLOW + "" + ChatColor.BOLD + "Price : " + ChatColor.GOLD + price + " Gold");
-        meta.setLore(lore);
-
-        item.setItemMeta(meta);
-
-
+    private MerchantRecipe AddItem(Material result, Material money, int count ,int price) {
+        MerchantRecipe item = new MerchantRecipe(new ItemStack(result, count), 10000);
+        item.addIngredient(new ItemStack(money, price));
         return item;
     }
 }

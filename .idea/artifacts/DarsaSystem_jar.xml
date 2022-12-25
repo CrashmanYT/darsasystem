@@ -6,6 +6,7 @@
       <element id="extracted-dir" path="$PROJECT_DIR$/SpigotAPI/spigot-api-1.19-R0.1-SNAPSHOT-shaded.jar" path-in-jar="/" />
       <element id="file-copy" path="$PROJECT_DIR$/src/org/resource/plugin.yml" />
       <element id="file-copy" path="$PROJECT_DIR$/src/org/resource/config.yml" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/SpigotAPI/spigot-1.19.2-R0.1-SNAPSHOT.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

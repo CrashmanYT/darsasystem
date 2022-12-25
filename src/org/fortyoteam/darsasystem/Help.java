@@ -21,7 +21,6 @@ public class Help implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
 
-        List<String> helpMessage = new ArrayList<>();
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&',"&6Plugin : &a&lDarsa&6&lSystem\n"));
         sender.sendMessage("  ");
         sender.sendMessage(ChatColor.YELLOW  + "Commands(s) :  ");
