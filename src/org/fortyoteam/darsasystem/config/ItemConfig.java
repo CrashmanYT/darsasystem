@@ -1,4 +1,4 @@
-package org.fortyoteam.darsasystem.files;
+package org.fortyoteam.darsasystem.config;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;

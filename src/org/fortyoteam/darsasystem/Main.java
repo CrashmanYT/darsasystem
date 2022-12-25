@@ -1,9 +1,13 @@
 package org.fortyoteam.darsasystem;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.fortyoteam.darsasystem.commands.*;
 import org.fortyoteam.darsasystem.completer.*;
+import org.fortyoteam.darsasystem.config.ScoreboardConfig;
 import org.fortyoteam.darsasystem.events.*;
-import org.fortyoteam.darsasystem.files.ItemConfig;
+import org.fortyoteam.darsasystem.config.ItemConfig;
+import org.fortyoteam.darsasystem.ui.DScoreboard;
 
 public class Main extends JavaPlugin {
     @Override
@@ -16,6 +20,12 @@ public class Main extends JavaPlugin {
         ItemConfig.setup();
         ItemConfig.get().options().copyDefaults(true);
         ItemConfig.save();
+
+        ScoreboardConfig.setup();
+        ScoreboardConfig.get().options().copyDefaults(true);
+        ScoreboardConfig.save();
+
+        new DScoreboard(getServer().getOnlinePlayers());
 
         // Config Commands
         getCommand("dsr").setExecutor(new Reload());
@@ -38,6 +48,7 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerInteract(), this);
         getServer().getPluginManager().registerEvents(new PlayerPickupItem(), this);
         getServer().getPluginManager().registerEvents(new PlayerDropItem(), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeath(), this);
         getServer().getPluginManager().registerEvents(new InventoryClick(), this);
         getServer().getPluginManager().registerEvents(new InventoryMove(), this);
         getServer().getPluginManager().registerEvents(new InventoryOpen(), this);
@@ -47,7 +58,6 @@ public class Main extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PrepareAnvil(), this);
         getServer().getPluginManager().registerEvents(new PrepareItemCraft(), this);
         getServer().getPluginManager().registerEvents(new PrepareSmithing(), this);
-
 
     }
 

@@ -1,4 +1,4 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -6,7 +6,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.fortyoteam.darsasystem.config.DarsaConfig;
-import org.fortyoteam.darsasystem.files.ItemConfig;
+import org.fortyoteam.darsasystem.config.ItemConfig;
 
 public class Reload implements CommandExecutor {
 

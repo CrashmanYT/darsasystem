@@ -6,8 +6,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.fortyoteam.darsasystem.DarsaItem;
-import org.fortyoteam.darsasystem.files.ItemConfig;
+import org.fortyoteam.darsasystem.commands.DarsaItem;
+import org.fortyoteam.darsasystem.config.ItemConfig;
 
 public class PlayerInteract implements Listener {
 

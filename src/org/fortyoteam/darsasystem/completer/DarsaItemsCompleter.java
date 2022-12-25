@@ -3,7 +3,7 @@ package org.fortyoteam.darsasystem.completer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
-import org.fortyoteam.darsasystem.files.ItemConfig;
+import org.fortyoteam.darsasystem.config.ItemConfig;
 
 import java.util.ArrayList;
 import java.util.List;

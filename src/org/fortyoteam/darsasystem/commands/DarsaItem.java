@@ -1,27 +1,17 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.commands;
 
 import org.bukkit.*;
-import org.bukkit.block.Block;
-import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.configuration.Configuration;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.fortyoteam.darsasystem.config.DarsaConfig;
-import org.fortyoteam.darsasystem.files.ItemConfig;
+import org.fortyoteam.darsasystem.config.ItemConfig;
 import org.fortyoteam.darsasystem.items.FrostSword;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class DarsaItem implements CommandExecutor {
 

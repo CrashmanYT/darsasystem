@@ -1,6 +1,5 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.commands;
 
-import net.minecraft.world.inventory.InventoryMerchant;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -8,13 +7,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
-import org.bukkit.entity.WanderingTrader;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.*;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.fortyoteam.darsasystem.files.ItemConfig;
-
 
 
 import java.util.ArrayList;

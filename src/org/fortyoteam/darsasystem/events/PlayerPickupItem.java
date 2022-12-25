@@ -3,7 +3,7 @@ package org.fortyoteam.darsasystem.events;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerPickupItemEvent;
-import org.fortyoteam.darsasystem.Blacksmith;
+import org.fortyoteam.darsasystem.commands.Blacksmith;
 
 public class PlayerPickupItem implements Listener {
 

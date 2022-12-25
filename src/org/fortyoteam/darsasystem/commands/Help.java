@@ -1,4 +1,4 @@
-package org.fortyoteam.darsasystem;
+package org.fortyoteam.darsasystem.commands;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Server;
